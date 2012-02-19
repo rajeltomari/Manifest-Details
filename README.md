@@ -70,89 +70,29 @@ Access Control URL: site/settings
 
 Just mark the text from the first note to the second, and copy it to your personnel.php controller.
 
-4. Upload the view folder. PLEASE NOTE: If either of those files:
+4. Open [your domain]/application/controllers/admin.php controller, and copy the entire function modmanifest() { } segment into the one in your domain. For your convenience, the function begins and ends with
+
+```
+	/**********************/
+	/**** MANIFEST MOD ****/
+	/**********************/
+```
+
+Just mark the text from the first note to the second, and copy it to your personnel.php controller.
+
+5. Upload the view folder. PLEASE NOTE: If either of those files:
 
 application/views/_base_override/main/pages/personnel_index.php
 application/views/_base_override/main/js/personnel_index_js.php
 
-Were changed in your application/views/ folder, you will need to skip the step. DO NOT upload the view files if they were previously modified, unless the modification was ONLY for this particular mod. If you upload the files, you will override whatever previous modification you already had. Skip to "Editing the view files" if that's the case.
+Were changed in your application/views/ folder, you will need to skip the step. DO NOT upload the view files if they were previously modified, unless the modification was ONLY for this particular mod. If you upload the files, you will override whatever previous modification you already had. 
 
 If the files were only updated by this mod (Manifest Details) then feel free to re-upload them both without worry.
 
 ### NOTE
 If you already edited these files for another mod, you will have to be careful manually managing this extension into the existing files. I only recommend you do that if YOU REALLY KNOW WHAT YOU'RE DOING! 
 
-The next section is meant for those of you who KNOW what they're doing (please!) and want to edit previously-edited view files.
-
-# Editing the view files
-Only do this if your view files for the manifest_index have already been edited. 
-
-1. Open your application/views/_base_override/main/pages/personnel_index.php
-
-Look for:
-
-```
-<td class="col_75 align_right">
-	<?php echo anchor('personnel/character/'. $char['char_id'], img($char['combadge']), array('class' => 'bold image'));?>
-</td>
-```
-
-This appears TWICE on the page. Once around line 115, and once more around line 180.
-
-Above each of those, paste this:
-
-```
-<td>
-	<!-- MOD MANIFEST -->
-	<?php echo $char['char_species'].' ('.$char['char_gender'].')';?>
-	<!-- MOD MANIFEST -->
-</td>
-```
-
-Now look for this line (around line 75):
-
-```
-<td colspan="5"><h3><?php echo $dept['name'];?></h3></td>
-```
-
-Change colspan="6"
-
-And this line (around 145): 
-
-```
-	<td colspan="4"><h4><?php echo $sub['name'];?></h4></td>
-```
-
-Change colspan='5'
-
-2. Open your application/views/_base_override/main/js/personnel_index_js.php page.
-
-Add this to the top of your file, *ABOVE* the <?php tag:
-
-```html
-<script type="text/javascript" src="<?php echo base_url() . APPFOLDER;?>/assets/js/jquery.thumbs.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url() . APPFOLDER;?>/assets/js/jquery.thumbs.css" />
-```
-
-Now all that's left to do is add the javascript command. Go to the end of the file, around line #115, above this part:
-
-```javascript
-});
-</script>
-```
-
-Make sure it's above that line otherwise this won't be part of your jQuery code. 
-
-Insert this just above the closing brackets (the snippet above):
-
-```javascript
-// THUMBNAILS //
-
-$('.charimg').thumbs();
-
-```
-
-And you're done. 
+I have marked all the changed/additions in the view file with HTML comments, so you should just find where they are and plug them into your previously-edited file.
 
 Credits and help
 ================
