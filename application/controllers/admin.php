@@ -12,7 +12,6 @@ class Admin extends Nova_admin {
 	/**********************/
 	/**** MANIFEST MOD ****/
 	/**********************/
-
 	public function modmanifest() {
 		// load the models
 				
@@ -89,9 +88,7 @@ class Admin extends Nova_admin {
 		Template::render();
 		
 	}	
-
 	/**********************/
 	/**** MANIFEST MOD ****/
 	/**********************/
-
 }

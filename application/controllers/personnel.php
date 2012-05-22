@@ -428,9 +428,7 @@ class Personnel extends Nova_personnel {
 		
 		Template::render();
 	}
-
 	/**********************/
 	/**** MANIFEST MOD ****/
 	/**********************/
-	
 }
