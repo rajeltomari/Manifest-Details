@@ -48,7 +48,7 @@
 			<br />
 			<h2 class="page-subhead"><?php echo $label['top_positions'];?></h2>
 			
-			<table class="table100" cellpadding="3" border="0">
+			<table class="table100" cellpadding="3" border="0" width="100%">
 				<tbody>
 					<?php foreach ($top as $t): ?>
 						<tr class="fontSmall">
@@ -116,10 +116,10 @@
 								<td>
 								<!-- MOD MANIFEST -->
 								<?php 
-								if ($settings['show']['species']== true) {
+								if (($settings['show']['species']== true) && ($char['char_species'] !== '')) {
 									echo $char['char_species'].' ';
 								}
-								if ($settings['show']['gender']== true) {
+								if (($settings['show']['gender']== true) && ($char['char_gender'] !== '')) {
 									echo '('.$char['char_gender'].')';
 								}
 								?>
